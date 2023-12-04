@@ -1,0 +1,7 @@
+{
+  "name": "HearthstoneApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
