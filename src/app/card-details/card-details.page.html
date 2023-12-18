@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Card Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="card">
+    <ion-card-header>
+      {{ card.name }}
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="6">
+          <ion-img [src]="card.img" alt="{{ card.name }}" style="max-width: 100%;"></ion-img>
+        </ion-col>
+        <ion-col size="6">
+
+          <ion-button (click)="toggleCardDetails()">Details</ion-button>
+
+          <ion-item *ngIf="showDetails">
+            <ion-label>Mana Cost:</ion-label>
+            <ion-text>{{ card.cost || '0' }}</ion-text>
+          </ion-item>
+
+          <ion-item *ngIf="showDetails">
+            <ion-label>Description:</ion-label>
+            <ion-text>{{ card.text }}</ion-text>
+          </ion-item>
+
+          <ion-item *ngIf="showDetails">
+            <ion-label>Expansion:</ion-label>
+            <ion-text>{{ card.cardSet }}</ion-text>
+          </ion-item>
+
+          <ion-item *ngIf="showDetails">
+            <ion-label>Race:</ion-label>
+            <ion-text>{{ card.race || 'None' }}</ion-text>
+          </ion-item>
+
+          <ion-item *ngIf="showDetails">
+            <ion-label>Class:</ion-label>
+            <ion-text>{{ card.playerClass || 'Neutral' }}</ion-text>
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
